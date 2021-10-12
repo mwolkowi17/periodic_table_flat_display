@@ -14,7 +14,6 @@ let displayButton;
 export let display_value = "Value";
 let display_atomic_number = ' ';
 let display_atomic_real_number = '';
-//const objectdisplay_s = [];
 const objects = [];
 const targets = { table: [], sphere: [], helix: [], grid: [], objectdisplay_s: [] };
 
@@ -63,10 +62,6 @@ function init() {
   camera.position.z = 3000;
 
   scene = new THREE.Scene();
-
-
-
-
 
   // table
 
@@ -186,10 +181,7 @@ function init() {
 
     transform(targets.table, 2000);
     display_tween(70, 500, 0, 2000)
-    //objectdisplay.position.x = 70;
-    //objectdisplay.position.y = 500;
-    //objectdisplay.position.z = 0;
-
+   
   });
 
   const buttonSphere = document.getElementById('sphere');
@@ -198,10 +190,6 @@ function init() {
     transform(targets.sphere, 2000);
     display_tween(0, 0, 0, 2000);
     isTable = false;
-    //transform(targets.objectdisplay_s, 2000);
-    //objectdisplay.position.x = 0;
-    //objectdisplay.position.y = 0;
-
 
   });
 
@@ -211,9 +199,6 @@ function init() {
     transform(targets.helix, 2000);
     display_tween(70, 700, 0, 2000);
     isTable = false;
-    //objectdisplay.position.x = 70;
-    //objectdisplay.position.y = 700;
-    //objectdisplay.position.z = 0;
 
   });
 
@@ -223,10 +208,7 @@ function init() {
     transform(targets.grid, 2000);
     display_tween(0, 0, 500, 2000);
     isTable = false
-    //objectdisplay.position.x = 0;
-    //objectdisplay.position.y = 0;
-    //objectdisplay.position.z = 500;
-
+ 
   });
 
 
@@ -313,16 +295,6 @@ function render() {
 
 }
 
-//require('./buttons.js')
-/*const hbutton = document.getElementById( table[0] );
-hbutton.addEventListener('click', function() {
-  
-  scene.remove(objectdisplay);
-  display_value=table[0];
-  display.textContent=display_value;
-  scene.add(objectdisplay);
-
-} );*/
 let displayAtached = false
 
 for (let i = 0; i < table.length; i += 5) {
@@ -332,7 +304,7 @@ for (let i = 0; i < table.length; i += 5) {
     if (isTable === false) {
       transform(targets.table, 2000);
     }
-    //scene.remove(objectdisplay);
+    
     display_value = table[i + 1];
     display_atomic_number = table[i + 2];
     display_atomic_real_number = (i / 5) + 1;
@@ -358,7 +330,7 @@ for (let i = 0; i < table.length; i += 5) {
 
 
 function buttonOn() {
-  //displayButton = document.getElementById('display');
+ 
   displayButton.addEventListener('click', function () {
     
     camera.remove(objectdisplay);
@@ -366,4 +338,4 @@ function buttonOn() {
 
   })
 }
-animate();
+//animate();
