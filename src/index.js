@@ -2,60 +2,26 @@
 import * as THREE from 'three';
 import { TWEEN } from '../node_modules/three/examples/jsm/libs/tween.module.min.js';
 import { TrackballControls } from '../node_modules/three/examples/jsm/controls/TrackballControls.js';
-import {OrbitControls} from '../node_modules/three/examples/jsm/controls/OrbitControls'
+//import {OrbitControls} from '../node_modules/three/examples/jsm/controls/OrbitControls'
 import { CSS3DRenderer, CSS3DObject } from '../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
 import { table } from './data.js';
+import {display, atomicRealNumber, atomicnumber} from './display.js'
 
 
 
-let camera, scene, renderer, objectdisplay;
-let controls;
+let camera, scene, renderer, objectdisplay, controls, displayButton;
 let isTable = true;
 let isGrid = false;
-let displayButton;
 export let display_value = "Value";
 let display_atomic_number = ' ';
 let display_atomic_real_number = '';
 const objects = [];
-const targets = { table: [], sphere: [], helix: [], grid: [], objectdisplay_s: [] };
+const targets = { table: [], sphere: [], helix: [], grid: [] };
 
 init();
 animate();
 
-//display
-
-const display = document.createElement('div');
-display.className = 'display';
-display.id = 'display';
-display.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
-display.textContent = "Element name";
-display.style.height = "200px";
-display.style.width = "400px";
-display.style.fontSize = "30px";
-display.style.textAlign = "center";
-display.style.lineHeight = "1.8";
-
 objectdisplay = new CSS3DObject(display);
-//objectdisplay.position.x = 70;
-//objectdisplay.position.y = 200;
-//objectdisplay.position.z = -15000;
-
-targets.objectdisplay_s.push(objectdisplay);
-
-
-const atomicnumber = document.createElement('div');
-atomicnumber.className = "atomicnumber";
-atomicnumber.textContent = "atomic weight:" + display_atomic_number;
-atomicnumber.style.fontSize = "20px";
-
-
-const atomicRealNumber = document.createElement('div');
-atomicRealNumber.className = "atomicrealnumber";
-atomicRealNumber.textContent = "atomic number:";
-atomicRealNumber.style.fontSize = "20px";
-display.appendChild(atomicRealNumber);
-display.appendChild(atomicnumber);
-
 
 
 function init() {
@@ -189,7 +155,6 @@ function init() {
   buttonTable.addEventListener('click', function () {
 
     transform(targets.table, 2000);
-    //display_tween(70, 500, 0, 2000)
    
   });
 
@@ -197,7 +162,6 @@ function init() {
   buttonSphere.addEventListener('click', function () {
 
     transform(targets.sphere, 2000);
-    //display_tween(0, 0, 0, 2000);
     isTable = false;
 
   });
@@ -206,7 +170,6 @@ function init() {
   buttonHelix.addEventListener('click', function () {
 
     transform(targets.helix, 2000);
-    //display_tween(70, 700, 0, 2000);
     isTable = false;
 
   });
@@ -215,7 +178,6 @@ function init() {
   buttonGrid.addEventListener('click', function () {
 
     transform(targets.grid, 2000);
-    //display_tween(0, 0, 500, 2000);
     isTable = false;
     isGrid = true;
  
