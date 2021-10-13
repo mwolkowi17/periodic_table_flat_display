@@ -11,6 +11,7 @@ import { table } from './data.js';
 let camera, scene, renderer, objectdisplay;
 let controls;
 let isTable = true;
+let isGrid = false;
 let displayButton;
 export let display_value = "Value";
 let display_atomic_number = ' ';
@@ -175,13 +176,14 @@ function init() {
 
   // controls
 
-  controls = new OrbitControls(camera, renderer.domElement);
+  //controls = new OrbitControls(camera, renderer.domElement);
+  controls = new TrackballControls(camera, renderer.domElement);
   controls.minDistance = 500;
   controls.maxDistance = 6000;
   controls.addEventListener('change', render);
-  controls.maxPolarAngle=1.57;
-  controls.minPolarAngle=1.57;
-  controls.rotateSpeed = 0.1;
+  //controls.maxPolarAngle=1.57;
+  //controls.minPolarAngle=1.57;
+  //controls.rotateSpeed = 0.1;
 
   const buttonTable = document.getElementById('table');
   buttonTable.addEventListener('click', function () {
@@ -214,7 +216,8 @@ function init() {
 
     transform(targets.grid, 2000);
     //display_tween(0, 0, 500, 2000);
-    isTable = false
+    isTable = false;
+    isGrid = true;
  
   });
 
@@ -312,6 +315,11 @@ for (let i = 0; i < table.length; i += 5) {
      // transform(targets.table, 2000);
     }
     
+    if(isGrid ===true){
+      transform(targets.table, 2000);
+    }
+
+
     display_value = table[i + 1];
     display_atomic_number = table[i + 2];
     display_atomic_real_number = (i / 5) + 1;
