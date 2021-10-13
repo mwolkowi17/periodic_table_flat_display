@@ -34,9 +34,9 @@ display.style.textAlign = "center";
 display.style.lineHeight = "1.8";
 
 objectdisplay = new CSS3DObject(display);
-objectdisplay.position.x = 70;
-objectdisplay.position.y = 200;
-objectdisplay.position.z = 0;
+//objectdisplay.position.x = 70;
+//objectdisplay.position.y = 200;
+//objectdisplay.position.z = -15000;
 
 targets.objectdisplay_s.push(objectdisplay);
 
@@ -57,6 +57,8 @@ display.appendChild(atomicnumber);
 
 
 function init() {
+  
+  //camera
 
   camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
   camera.position.z = 3000;
@@ -163,13 +165,13 @@ function init() {
 
   }
 
-  //
+  // renderer
 
   renderer = new CSS3DRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.getElementById('container').appendChild(renderer.domElement);
 
-  //
+  // controls
 
   controls = new TrackballControls(camera, renderer.domElement);
   controls.minDistance = 500;
@@ -180,7 +182,7 @@ function init() {
   buttonTable.addEventListener('click', function () {
 
     transform(targets.table, 2000);
-    display_tween(70, 500, 0, 2000)
+    //display_tween(70, 500, 0, 2000)
    
   });
 
@@ -188,7 +190,7 @@ function init() {
   buttonSphere.addEventListener('click', function () {
 
     transform(targets.sphere, 2000);
-    display_tween(0, 0, 0, 2000);
+    //display_tween(0, 0, 0, 2000);
     isTable = false;
 
   });
@@ -197,7 +199,7 @@ function init() {
   buttonHelix.addEventListener('click', function () {
 
     transform(targets.helix, 2000);
-    display_tween(70, 700, 0, 2000);
+    //display_tween(70, 700, 0, 2000);
     isTable = false;
 
   });
@@ -206,7 +208,7 @@ function init() {
   buttonGrid.addEventListener('click', function () {
 
     transform(targets.grid, 2000);
-    display_tween(0, 0, 500, 2000);
+    //display_tween(0, 0, 500, 2000);
     isTable = false
  
   });
@@ -302,7 +304,7 @@ for (let i = 0; i < table.length; i += 5) {
   hbutton.addEventListener('click', function () {
 
     if (isTable === false) {
-      transform(targets.table, 2000);
+     // transform(targets.table, 2000);
     }
     
     display_value = table[i + 1];
@@ -315,12 +317,15 @@ for (let i = 0; i < table.length; i += 5) {
     display.appendChild(atomicnumber);
     const container = document.getElementById('container');
     if(displayAtached===false){
+      scene.add(camera);
       camera.add(objectdisplay);
+      
+      objectdisplay.position.set(0,0,-1500);
     }
     container.appendChild(display)
     displayAtached=true;
-    
-    display_tween(70, 500, 0, 2000)
+    display_tween(-500,170,-1000, 2000)
+    //display_tween(70, 500, 0, 2000)
     displayButton = document.getElementById('display');
     buttonOn();
 
