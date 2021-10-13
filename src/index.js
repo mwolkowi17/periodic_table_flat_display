@@ -2,6 +2,7 @@
 import * as THREE from 'three';
 import { TWEEN } from '../node_modules/three/examples/jsm/libs/tween.module.min.js';
 import { TrackballControls } from '../node_modules/three/examples/jsm/controls/TrackballControls.js';
+import {OrbitControls} from '../node_modules/three/examples/jsm/controls/OrbitControls'
 import { CSS3DRenderer, CSS3DObject } from '../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
 import { table } from './data.js';
 
@@ -64,6 +65,7 @@ function init() {
   camera.position.z = 3000;
 
   scene = new THREE.Scene();
+  scene.add(camera);
 
   // table
 
@@ -173,10 +175,13 @@ function init() {
 
   // controls
 
-  controls = new TrackballControls(camera, renderer.domElement);
+  controls = new OrbitControls(camera, renderer.domElement);
   controls.minDistance = 500;
   controls.maxDistance = 6000;
   controls.addEventListener('change', render);
+  controls.maxPolarAngle=1.57;
+  controls.minPolarAngle=1.57;
+  controls.rotateSpeed = 0.1;
 
   const buttonTable = document.getElementById('table');
   buttonTable.addEventListener('click', function () {
@@ -317,7 +322,7 @@ for (let i = 0; i < table.length; i += 5) {
     display.appendChild(atomicnumber);
     const container = document.getElementById('container');
     if(displayAtached===false){
-      scene.add(camera);
+      //scene.add(camera);
       camera.add(objectdisplay);
       
       objectdisplay.position.set(0,0,-1500);
