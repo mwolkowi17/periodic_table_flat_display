@@ -1,3 +1,5 @@
+import { CSS3DRenderer, CSS3DObject } from '../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
+
 export const display = document.createElement('div');
 display.className = 'display';
 display.id = 'display';
@@ -22,3 +24,5 @@ atomicRealNumber.style.fontSize = "20px";
 
 display.appendChild(atomicRealNumber);
 display.appendChild(atomicnumber);
+
+export const objectdisplay = new CSS3DObject(display);

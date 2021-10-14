@@ -5,11 +5,11 @@ import { TrackballControls } from '../node_modules/three/examples/jsm/controls/T
 //import {OrbitControls} from '../node_modules/three/examples/jsm/controls/OrbitControls'
 import { CSS3DRenderer, CSS3DObject } from '../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
 import { table } from './data.js';
-import {display, atomicRealNumber, atomicnumber} from './display.js'
+import {display, atomicRealNumber, atomicnumber, objectdisplay} from './display.js'
 
 
 
-let camera, scene, renderer, objectdisplay, controls, displayButton;
+let camera, scene, renderer, controls, displayButton;
 let isTable = true;
 let isGrid = false;
 export let display_value = "Value";
@@ -20,9 +20,6 @@ const targets = { table: [], sphere: [], helix: [], grid: [] };
 
 init();
 animate();
-
-objectdisplay = new CSS3DObject(display);
-
 
 function init() {
   
