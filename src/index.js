@@ -5,11 +5,12 @@ import { TrackballControls } from '../node_modules/three/examples/jsm/controls/T
 //import {OrbitControls} from '../node_modules/three/examples/jsm/controls/OrbitControls'
 import { CSS3DRenderer, CSS3DObject } from '../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
 import { table } from './data.js';
-import {display, atomicRealNumber, atomicnumber, objectdisplay} from './display.js'
+import {display, atomicRealNumber, atomicnumber, objectdisplay} from './display.js';
+import {searcher, objectsearcher} from './searcher.js'
 
 
 
-let camera, scene, renderer, controls, displayButton;
+let camera, scene, renderer, controls, displayButton, searcherButton;
 let isTable = true;
 let isGrid = false;
 export let display_value = "Value";
@@ -300,7 +301,9 @@ for (let i = 0; i < table.length; i += 5) {
     //display_tween(70, 500, 0, 2000)
     displayButton = document.getElementById('display');
     buttonOn();
-
+    
+    //searcher test placeholder
+    
   });
 }
 
@@ -314,5 +317,21 @@ function buttonOn() {
     displayAtached=false;
 
   })
+}
+
+const searchBar = document.getElementById('searchbar');
+searchBar.addEventListener('click', function(){
+  camera.add(objectsearcher);
+  objectsearcher.position.set(0,260,-1500);
+  const container = document.getElementById('container');
+  container.appendChild(searcher);
+  searcherButton=document.getElementById('searcher');
+  buttonSearchOff();
+})
+
+function buttonSearchOff(){
+searcherButton.addEventListener('click', function(){
+  camera.remove(objectsearcher);
+})
 }
 //animate();
