@@ -6,7 +6,8 @@ import { TrackballControls } from '../node_modules/three/examples/jsm/controls/T
 import { CSS3DRenderer, CSS3DObject } from '../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
 import { table } from './data.js';
 import {display, atomicRealNumber, atomicnumber, objectdisplay} from './display.js';
-import {searcher, objectsearcher} from './searcher.js'
+import {searcher, objectsearcher, searchinput} from './searcher.js'
+import {szuk} from './searchengine.js'
 
 
 
@@ -330,8 +331,15 @@ searchBar.addEventListener('click', function(){
 })
 
 function buttonSearchOff(){
-searcherButton.addEventListener('click', function(){
-  camera.remove(objectsearcher);
+searcherButton.addEventListener('dblclick', function(){
+    camera.remove(objectsearcher);
+
+
+})
+searchinput.addEventListener('input', function(){
+  const lettersToCheck = searchinput.value
+    szuk(lettersToCheck)
 })
 }
+
 //animate();
