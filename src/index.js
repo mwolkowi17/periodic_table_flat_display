@@ -355,7 +355,6 @@ function buttonSearchOff() {
         console.log(defualtId);
 
       }*/
-     
       if (element.id === lettersToCheck) {
         
         defualtId = element.id;
