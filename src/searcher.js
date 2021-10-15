@@ -13,7 +13,13 @@ searchinput.className = 'searchinput';
 searchinput.style.height = "40px";
 searchinput.style.width = "125px";
 
+/*export const searchButton = document.createElement('button');
+searchButton.className = 'searchButton';
+searchinput.style.height = "40px";
+searchinput.style.width = "80px";*/
+
 searcher.appendChild(searchinput);
+//searcher.appendChild(searchButton);
 
 export const objectsearcher = new CSS3DObject(searcher);
 

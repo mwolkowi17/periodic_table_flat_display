@@ -5,9 +5,9 @@ import { TrackballControls } from '../node_modules/three/examples/jsm/controls/T
 //import {OrbitControls} from '../node_modules/three/examples/jsm/controls/OrbitControls'
 import { CSS3DRenderer, CSS3DObject } from '../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
 import { table } from './data.js';
-import {display, atomicRealNumber, atomicnumber, objectdisplay} from './display.js';
-import {searcher, objectsearcher, searchinput} from './searcher.js'
-import {szuk} from './searchengine.js'
+import { display, atomicRealNumber, atomicnumber, objectdisplay } from './display.js';
+import { searcher, objectsearcher, searchinput } from './searcher.js'
+import { szuk } from './searchengine.js'
 
 
 
@@ -24,7 +24,7 @@ init();
 animate();
 
 function init() {
-  
+
   //camera
 
   camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
@@ -154,7 +154,7 @@ function init() {
   buttonTable.addEventListener('click', function () {
 
     transform(targets.table, 2000);
-   
+
   });
 
   const buttonSphere = document.getElementById('sphere');
@@ -179,7 +179,7 @@ function init() {
     transform(targets.grid, 2000);
     isTable = false;
     isGrid = true;
- 
+
   });
 
 
@@ -273,10 +273,10 @@ for (let i = 0; i < table.length; i += 5) {
   hbutton.addEventListener('click', function () {
 
     if (isTable === false) {
-     // transform(targets.table, 2000);
+      // transform(targets.table, 2000);
     }
-    
-    if(isGrid ===true){
+
+    if (isGrid === true) {
       transform(targets.table, 2000);
     }
 
@@ -290,82 +290,89 @@ for (let i = 0; i < table.length; i += 5) {
     display.appendChild(atomicRealNumber);
     display.appendChild(atomicnumber);
     const container = document.getElementById('container');
-    if(displayAtached===false){
+    if (displayAtached === false) {
       //scene.add(camera);
       camera.add(objectdisplay);
-      
-      objectdisplay.position.set(0,0,-1500);
+
+      objectdisplay.position.set(0, 0, -1500);
     }
     container.appendChild(display)
-    displayAtached=true;
-    display_tween(-500,170,-1000, 2000)
+    displayAtached = true;
+    display_tween(-500, 170, -1000, 2000)
     //display_tween(70, 500, 0, 2000)
     displayButton = document.getElementById('display');
     buttonOn();
-    
+
     //searcher test placeholder
-    
+
   });
 }
 
 
 
 function buttonOn() {
- 
+
   displayButton.addEventListener('click', function () {
-    
+
     camera.remove(objectdisplay);
-    displayAtached=false;
+    displayAtached = false;
 
   })
 }
 
 const searchBar = document.getElementById('searchbar');
-searchBar.addEventListener('click', function(){
+searchBar.addEventListener('click', function () {
   camera.add(objectsearcher);
-  objectsearcher.position.set(0,260,-1500);
+  objectsearcher.position.set(0, 260, -1500);
   const container = document.getElementById('container');
   container.appendChild(searcher);
-  searcherButton=document.getElementById('searcher');
+  searcherButton = document.getElementById('searcher');
   buttonSearchOff();
 })
 
-function buttonSearchOff(){
-searcherButton.addEventListener('dblclick', function(){
+function buttonSearchOff() {
+  searcherButton.addEventListener('dblclick', function () {
     camera.remove(objectsearcher);
 
 
-})
-let colorDefualt;
-let defualtId;
+  })
+  let colorDefualt;
+  let defualtId='';
 
-searchinput.addEventListener('input', function(){
-  const lettersToCheck = searchinput.value;
+  searchinput.addEventListener('input', function () {
+    const lettersToCheck = searchinput.value;
     szuk(lettersToCheck);
-   
+
     for (let i = 0; i < table.length; i += 5) {
-      const element=document.getElementById(table[i]);
-      
-     
-      /*else{
-        element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
-      }*/
-      if(element.id===defualtId){
-        element.style.backgroundColor=colorDefualt;
-        console.log(colorDefualt);
-      }
-      if (element.id === lettersToCheck){
-        colorDefualt= element.style.backgroundColor;
-        defualtId=element.id;
-        element.style.backgroundColor = 'rgba(255,130,170,' + (Math.random() * 0.5 + 0.25) + ')';
+      const element = document.getElementById(table[i]);
+      element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
+
+      /*if (element.id === defualtId) {
+        
+        element.style.backgroundColor = colorDefualt;
+        console.log('first')
         console.log(colorDefualt);
         console.log(defualtId);
+
+      }*/
+     
+      if (element.id === lettersToCheck) {
+        
+        defualtId = element.id;
+        colorDefualt = element.style.backgroundColor;
+        //defualtId=element.id;
+        element.style.backgroundColor = 'rgba(255,130,170,' + (Math.random() * 0.5 + 0.25) + ')';
+        console.log('second')
+        console.log(colorDefualt);
+        console.log(defualtId);
+        
       }
       
+
     }
-   
-    
-})
+
+
+  })
 }
 
 //animate();
