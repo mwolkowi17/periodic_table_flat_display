@@ -336,9 +336,35 @@ searcherButton.addEventListener('dblclick', function(){
 
 
 })
+let colorDefualt;
+let defualtId;
+
 searchinput.addEventListener('input', function(){
-  const lettersToCheck = searchinput.value
-    szuk(lettersToCheck)
+  const lettersToCheck = searchinput.value;
+    szuk(lettersToCheck);
+   
+    for (let i = 0; i < table.length; i += 5) {
+      const element=document.getElementById(table[i]);
+      
+     
+      /*else{
+        element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
+      }*/
+      if(element.id===defualtId){
+        element.style.backgroundColor=colorDefualt;
+        console.log(colorDefualt);
+      }
+      if (element.id === lettersToCheck){
+        colorDefualt= element.style.backgroundColor;
+        defualtId=element.id;
+        element.style.backgroundColor = 'rgba(255,130,170,' + (Math.random() * 0.5 + 0.25) + ')';
+        console.log(colorDefualt);
+        console.log(defualtId);
+      }
+      
+    }
+   
+    
 })
 }
 
