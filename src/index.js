@@ -332,6 +332,11 @@ searchBar.addEventListener('click', function () {
 
 function buttonSearchOff() {
   searcherButton.addEventListener('dblclick', function () {
+    searchinput.value=null;
+    for (let i = 0; i < table.length; i += 5) {
+    const element = document.getElementById(table[i]);
+    element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
+    }
     camera.remove(objectsearcher);
 
 
