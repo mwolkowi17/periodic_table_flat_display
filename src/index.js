@@ -6,7 +6,7 @@ import { TrackballControls } from '../node_modules/three/examples/jsm/controls/T
 import { CSS3DRenderer, CSS3DObject } from '../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
 import { table } from './data.js';
 import { display, atomicRealNumber, atomicnumber, objectdisplay } from './display.js';
-import { searcher, objectsearcher, searchinput } from './searcher.js'
+import { searcher, objectsearcher, searchinput} from './searcher.js'
 import { szuk } from './searchengine.js'
 
 
@@ -336,40 +336,31 @@ function buttonSearchOff() {
 
 
   })
-  let colorDefualt;
-  let defualtId='';
 
   searchinput.addEventListener('input', function () {
     const lettersToCheck = searchinput.value;
     szuk(lettersToCheck);
-
+//work in progress
+    const lettersToCheckArray = lettersToCheck.split('');
+    if(lettersToCheckArray.length!=0){
+      lettersToCheckArray[0] = lettersToCheckArray[0].toUpperCase();
+    }
+     const lettersToCheckFormated = lettersToCheckArray.join('');
+    console.log("0 position" + lettersToCheckArray[0])
+    console.log(lettersToCheckFormated)
+//end to wop
     for (let i = 0; i < table.length; i += 5) {
       const element = document.getElementById(table[i]);
       element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
 
-      /*if (element.id === defualtId) {
-        
-        element.style.backgroundColor = colorDefualt;
-        console.log('first')
-        console.log(colorDefualt);
-        console.log(defualtId);
+      if (element.id === lettersToCheckFormated) {
 
-      }*/
-      if (element.id === lettersToCheck) {
-        
-        defualtId = element.id;
-        colorDefualt = element.style.backgroundColor;
-        //defualtId=element.id;
         element.style.backgroundColor = 'rgba(255,130,170,' + (Math.random() * 0.5 + 0.25) + ')';
         console.log('second')
-        console.log(colorDefualt);
-        console.log(defualtId);
-        
+
       }
-      
 
     }
-
 
   })
 }
