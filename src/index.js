@@ -312,7 +312,7 @@ for (let i = 0; i < table.length; i += 5) {
 
 function buttonOn() {
 
-  displayButton.addEventListener('click', function () {
+  displayButton.addEventListener('dblclick', function () {
 
     camera.remove(objectdisplay);
     displayAtached = false;
@@ -354,6 +354,12 @@ function buttonSearchOff() {
       element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
 
       if (element.id === lettersToCheckFormated) {
+
+        element.style.backgroundColor = 'rgba(255,130,170,' + (Math.random() * 0.5 + 0.25) + ')';
+        console.log('second')
+
+      }
+      if (element.id.split('')[0] === lettersToCheckFormated) {
 
         element.style.backgroundColor = 'rgba(255,130,170,' + (Math.random() * 0.5 + 0.25) + ')';
         console.log('second')
