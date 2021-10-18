@@ -1,4 +1,4 @@
-export const table = [
+/*export const table = [
     "H", "Hydrogen", "1.00794", 1, 1,
     "He", "Helium", "4.002602", 18, 1,
     "Li", "Lithium", "6.941", 1, 2,
@@ -118,8 +118,8 @@ export const table = [
     "Ts", "Tennessine", "(294)", 17, 7,
     "Og", "Oganesson", "(294)", 18, 7
   ];
-
- /* export const table = [
+*/
+ export const table = [
     "H", "Hydrogen", "1.00794", 1, 1,'description',
     "He", "Helium", "4.002602", 18, 1, 'description',
     "Li", "Lithium", "6.941", 1, 2, 'description',
@@ -238,4 +238,4 @@ export const table = [
     "Lv", "Livermorium", "(293)", 16, 7, 'description',
     "Ts", "Tennessine", "(294)", 17, 7, 'description',
     "Og", "Oganesson", "(294)", 18, 7, 'description',
-  ];*/
+  ];

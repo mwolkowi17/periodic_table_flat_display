@@ -35,7 +35,7 @@ function init() {
 
   // table
 
-  for (let i = 0; i < table.length; i += 5) {
+  for (let i = 0; i < table.length; i += 6) {
 
     const element = document.createElement('div');
     element.className = 'element';
@@ -44,7 +44,7 @@ function init() {
 
     const number = document.createElement('div');
     number.className = 'number';
-    number.textContent = (i / 5) + 1;
+    number.textContent = (i / 6) + 1;
     element.appendChild(number);
 
     const symbol = document.createElement('div');
@@ -268,7 +268,7 @@ function render() {
 
 let displayAtached = false
 
-for (let i = 0; i < table.length; i += 5) {
+for (let i = 0; i < table.length; i += 6) {
   const hbutton = document.getElementById(table[i]);
   hbutton.addEventListener('click', function () {
 
@@ -283,7 +283,7 @@ for (let i = 0; i < table.length; i += 5) {
 
     display_value = table[i + 1];
     display_atomic_number = table[i + 2];
-    display_atomic_real_number = (i / 5) + 1;
+    display_atomic_real_number = (i / 6) + 1;
     display.textContent = display_value;
     atomicRealNumber.textContent = "atomic number:" + display_atomic_real_number;
     atomicnumber.textContent = "atomic weight:" + display_atomic_number;
@@ -333,7 +333,7 @@ searchBar.addEventListener('click', function () {
 function buttonSearchOff() {
   searcherButton.addEventListener('dblclick', function () {
     searchinput.value=null;
-    for (let i = 0; i < table.length; i += 5) {
+    for (let i = 0; i < table.length; i += 6) {
     const element = document.getElementById(table[i]);
     element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
     }
@@ -354,7 +354,7 @@ function buttonSearchOff() {
     console.log("0 position" + lettersToCheckArray[0])
     console.log(lettersToCheckFormated)
 //end to wop
-    for (let i = 0; i < table.length; i += 5) {
+    for (let i = 0; i < table.length; i += 6) {
       const element = document.getElementById(table[i]);
       element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
 
