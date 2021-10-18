@@ -5,7 +5,7 @@ import { TrackballControls } from '../node_modules/three/examples/jsm/controls/T
 //import {OrbitControls} from '../node_modules/three/examples/jsm/controls/OrbitControls'
 import { CSS3DRenderer, CSS3DObject } from '../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
 import { table } from './data.js';
-import { display, atomicRealNumber, atomicnumber, objectdisplay } from './display.js';
+import { display, atomicRealNumber, atomicnumber, objectdisplay, atomicDescription } from './display.js';
 import { searcher, objectsearcher, searchinput} from './searcher.js'
 import { szuk } from './searchengine.js'
 
@@ -289,6 +289,7 @@ for (let i = 0; i < table.length; i += 6) {
     atomicnumber.textContent = "atomic weight:" + display_atomic_number;
     display.appendChild(atomicRealNumber);
     display.appendChild(atomicnumber);
+    display.appendChild(atomicDescription)
     const container = document.getElementById('container');
     if (displayAtached === false) {
       //scene.add(camera);

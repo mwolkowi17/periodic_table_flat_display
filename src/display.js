@@ -22,7 +22,13 @@ atomicRealNumber.className = "atomicrealnumber";
 atomicRealNumber.textContent = "atomic number:";
 atomicRealNumber.style.fontSize = "20px";
 
+export const atomicDescription = document.createElement('div')
+atomicDescription.className = 'atomicDescription';
+atomicDescription.textContent = "Description: ";
+atomicDescription.style.fontSize = "12px";
+
 display.appendChild(atomicRealNumber);
 display.appendChild(atomicnumber);
+display.appendChild(atomicDescription);
 
 export const objectdisplay = new CSS3DObject(display);
