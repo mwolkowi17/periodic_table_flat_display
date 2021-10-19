@@ -302,7 +302,7 @@ for (let i = 0; i < table.length; i += 6) {
     }
     container.appendChild(display)
     displayAtached = true;
-    display_tween(-500, 170, -1000, 2000)
+    display_tween(-500, 100, -1000, 2000)
     //display_tween(70, 500, 0, 2000)
     displayButton = document.getElementById('display');
     buttonOn();

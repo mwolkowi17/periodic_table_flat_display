@@ -344,3 +344,4 @@ healthchecksdb
 out/
 dist/bootstrap-5.0.0-beta1-dist
 *.glb
+.dist/element
