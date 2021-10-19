@@ -17,6 +17,7 @@ let isGrid = false;
 export let display_value = "Value";
 let display_atomic_number = ' ';
 let display_atomic_real_number = '';
+let display_atomic_description = '';
 const objects = [];
 const targets = { table: [], sphere: [], helix: [], grid: [] };
 
@@ -284,9 +285,11 @@ for (let i = 0; i < table.length; i += 6) {
     display_value = table[i + 1];
     display_atomic_number = table[i + 2];
     display_atomic_real_number = (i / 6) + 1;
+    display_atomic_description =table[i + 5];
     display.textContent = display_value;
     atomicRealNumber.textContent = "atomic number:" + display_atomic_real_number;
     atomicnumber.textContent = "atomic weight:" + display_atomic_number;
+    atomicDescription.textContent = "description: " + display_atomic_description;
     display.appendChild(atomicRealNumber);
     display.appendChild(atomicnumber);
     display.appendChild(atomicDescription)
@@ -346,7 +349,7 @@ function buttonSearchOff() {
   searchinput.addEventListener('input', function () {
     const lettersToCheck = searchinput.value;
     szuk(lettersToCheck);
-//work in progress
+
     const lettersToCheckArray = lettersToCheck.split('');
     if(lettersToCheckArray.length!=0){
       lettersToCheckArray[0] = lettersToCheckArray[0].toUpperCase();
@@ -354,7 +357,7 @@ function buttonSearchOff() {
      const lettersToCheckFormated = lettersToCheckArray.join('');
     console.log("0 position" + lettersToCheckArray[0])
     console.log(lettersToCheckFormated)
-//end to wop
+
     for (let i = 0; i < table.length; i += 6) {
       const element = document.getElementById(table[i]);
       element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
