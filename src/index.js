@@ -6,8 +6,9 @@ import { TrackballControls } from '../node_modules/three/examples/jsm/controls/T
 import { CSS3DRenderer, CSS3DObject } from '../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
 import { table } from './data.js';
 import { display, atomicRealNumber, atomicnumber, objectdisplay, atomicDescription } from './display.js';
-import { searcher, objectsearcher, searchinput} from './searcher.js'
-import { szuk } from './searchengine.js'
+import { searcher, objectsearcher, searchinput} from './searcher.js';
+import { szuk } from './searchengine.js';
+//import {wynik, getData,newwynik} from './ajaxgetter';
 
 
 
@@ -23,6 +24,8 @@ const targets = { table: [], sphere: [], helix: [], grid: [] };
 
 init();
 animate();
+const imp= require('./ajaxgetter.js'); 
+console.log('gotowe: '+await imp.newwynik)
 
 function init() {
 
