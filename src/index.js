@@ -25,7 +25,7 @@ const targets = { table: [], sphere: [], helix: [], grid: [] };
 init();
 animate();
 const imp= require('./ajaxgetter.js'); 
-console.log('gotowe: '+await imp.getData(0))
+console.log('gotowe: '+await imp.getData(3))
 
 function init() {
 
@@ -272,9 +272,11 @@ function render() {
 
 let displayAtached = false
 
+
+
 for (let i = 0; i < table.length; i += 6) {
   const hbutton = document.getElementById(table[i]);
-  hbutton.addEventListener('click', function () {
+  hbutton.addEventListener('click', async function () {
 
     if (isTable === false) {
       // transform(targets.table, 2000);
@@ -283,13 +285,13 @@ for (let i = 0; i < table.length; i += 6) {
     if (isGrid === true) {
       transform(targets.table, 2000);
     }
-    //const wynikToDisplay = require('./ajaxgetter.js');
+   const wynikToDisplay = require('./ajaxgetter.js');
     
     display_value = table[i + 1];
     display_atomic_number = table[i + 2];
     display_atomic_real_number = (i / 6) + 1;
-    display_atomic_description = table[i + 5];
-    //display_atomic_description =  await wynikToDisplay.getData((i/6)+1);
+    //display_atomic_description = table[i + 5];
+    display_atomic_description = await wynikToDisplay.getData(i/6);
     display.textContent = display_value;
     atomicRealNumber.textContent = "atomic number:" + display_atomic_real_number;
     atomicnumber.textContent = "atomic weight:" + display_atomic_number;

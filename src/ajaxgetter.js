@@ -2,7 +2,7 @@ import * as axios from 'axios';
 
 const number = 1
 let wynik = [];
-
+let checkGet=false;
 export async function getData(i) {
   //await axios.get('/element/1.json')
   for (let i=1; i < 119; i++){
@@ -12,7 +12,10 @@ export async function getData(i) {
       //console.log(response);
       //console.log(response.status);
       //wynik=response.status;
-      wynik.push(response.data.element.BriefDescription)
+      
+        wynik.push(response.data.element.BriefDescription);
+        
+     
       //console.log(wynik[0]);
 
 
