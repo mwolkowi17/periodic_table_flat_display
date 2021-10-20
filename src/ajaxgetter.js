@@ -3,7 +3,7 @@ import * as axios from 'axios';
 const number = 1
 let wynik = [];
 
-export async function getData() {
+export async function getData(i) {
   //await axios.get('/element/1.json')
   for (let i=1; i < 119; i++){
   await axios.get('/element/'+i+'.json')
@@ -13,7 +13,7 @@ export async function getData() {
       //console.log(response.status);
       //wynik=response.status;
       wynik.push(response.data.element.BriefDescription)
-      console.log(wynik[0]);
+      //console.log(wynik[0]);
 
 
 
@@ -28,7 +28,7 @@ export async function getData() {
       // always executed
     });
   }
-  return wynik;
+  return wynik[i];
 }
 export const newwynik = getData()
 console.log(wynik);
