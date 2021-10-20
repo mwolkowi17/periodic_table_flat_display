@@ -25,7 +25,7 @@ const targets = { table: [], sphere: [], helix: [], grid: [] };
 init();
 animate();
 const imp= require('./ajaxgetter.js'); 
-console.log('gotowe: '+await imp.newwynik)
+//console.log('gotowe: '+await imp.newwynik)
 
 function init() {
 
