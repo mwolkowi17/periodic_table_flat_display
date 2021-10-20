@@ -12,7 +12,7 @@ export async function getData() {
       //console.log(response);
       //console.log(response.status);
       //wynik=response.status;
-      wynik.push(response.status)
+      wynik.push(response.data.element.BriefDescription)
       console.log(wynik[0]);
 
 
