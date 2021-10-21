@@ -24,8 +24,8 @@ const targets = { table: [], sphere: [], helix: [], grid: [] };
 
 init();
 animate();
-const imp= require('./ajaxgetter.js'); 
-console.log('gotowe: '+await imp.getData(3))
+//const imp= require('./ajaxgetter.js'); 
+//console.log('gotowe: '+await imp.getData(3))
 
 function init() {
 
@@ -227,7 +227,6 @@ function transform(targets, duration) {
 
 function display_tween(xpar, ypar, zpar, duration) {
 
-  //TWEEN.removeAll();
 
   const object = objectdisplay;
 
@@ -273,6 +272,7 @@ function render() {
 let displayAtached = false
 
 
+//adding button functionality to elements
 
 for (let i = 0; i < table.length; i += 6) {
   const hbutton = document.getElementById(table[i]);
@@ -290,7 +290,6 @@ for (let i = 0; i < table.length; i += 6) {
     display_value = table[i + 1];
     display_atomic_number = table[i + 2];
     display_atomic_real_number = (i / 6) + 1;
-    //display_atomic_description = table[i + 5];
     display_atomic_description = await wynikToDisplay.getData(i/6);
     display.textContent = display_value;
     atomicRealNumber.textContent = "atomic number:" + display_atomic_real_number;
@@ -330,6 +329,8 @@ function buttonOn() {
   })
 }
 
+//searchBar
+
 const searchBar = document.getElementById('searchbar');
 searchBar.addEventListener('click', function () {
   camera.add(objectsearcher);
@@ -351,6 +352,8 @@ function buttonSearchOff() {
 
 
   })
+
+//searchInput
 
   searchinput.addEventListener('input', function () {
     const lettersToCheck = searchinput.value;
