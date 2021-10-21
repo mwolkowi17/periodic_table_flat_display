@@ -290,11 +290,12 @@ for (let i = 0; i < table.length; i += 6) {
     display_value = table[i + 1];
     display_atomic_number = table[i + 2];
     display_atomic_real_number = (i / 6) + 1;
+    // display description call
     display_atomic_description = await wynikToDisplay.getData(i/6);
     display.textContent = display_value;
     atomicRealNumber.textContent = "atomic number:" + display_atomic_real_number;
     atomicnumber.textContent = "atomic weight:" + display_atomic_number;
-    atomicDescription.textContent = "description: " + display_atomic_description;
+    atomicDescription.textContent = "description: " + display_atomic_description.replace(/<p>/g,' ').replaceAll('</p>','');
     display.appendChild(atomicRealNumber);
     display.appendChild(atomicnumber);
     display.appendChild(atomicDescription)

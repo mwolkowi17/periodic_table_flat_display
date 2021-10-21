@@ -34,4 +34,7 @@ export async function getData(i) {
   return wynik[i];
 }
 export const newwynik = getData()
-console.log(wynik);
+//let text='';
+//text=wynik[0]
+//text.replace('<p>','');
+//console.log(text);
