@@ -9,6 +9,7 @@ import { display, atomicRealNumber, atomicnumber, objectdisplay, atomicDescripti
 import { searcher, objectsearcher, searchinput} from './searcher.js';
 import { szuk } from './searchengine.js';
 //import {wynik, getData,newwynik} from './ajaxgetter';
+import {scalingDisplay} from './scaling_display.js';
 
 
 
@@ -306,7 +307,10 @@ for (let i = 0; i < table.length; i += 6) {
 
       objectdisplay.position.set(0, 0, -1500);
     }
+    
+    
     container.appendChild(display)
+    scalingDisplay(atomicDescription.textContent.length);
     displayAtached = true;
     display_tween(-500, 100, -1000, 2000)
     //display_tween(70, 500, 0, 2000)
