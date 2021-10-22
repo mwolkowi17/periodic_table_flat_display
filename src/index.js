@@ -226,7 +226,7 @@ function transform(targets, duration) {
 
 // tween display function
 
-function display_tween(xpar, ypar, zpar, duration) {
+export function display_tween(xpar, ypar, zpar, duration) {
 
 
   const object = objectdisplay;
@@ -312,7 +312,7 @@ for (let i = 0; i < table.length; i += 6) {
     container.appendChild(display)
     scalingDisplay(atomicDescription.textContent.length);
     displayAtached = true;
-    display_tween(-500, 100, -1000, 2000)
+    //display_tween(-500, 100, -1000, 2000)
     //display_tween(70, 500, 0, 2000)
     displayButton = document.getElementById('display');
     buttonOn();

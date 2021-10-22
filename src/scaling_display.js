@@ -1,12 +1,16 @@
-import { display } from "./display.js";
+import { display,objectdisplay } from "./display.js";
+import { display_tween } from "./index.js";
 
 export function scalingDisplay(stringLenght){
-if(stringLenght<600){
-    display.style.height="320px";
+if(stringLenght>700){
+    display.style.height=(stringLenght/1.7).toString()+'px';
     console.log("new height");
+    display_tween(-500, 0, -1000, 2000)
+    //objectdisplay.position.set(-500, 0, -1500);
+}else{
+    display.style.height = "350px";
+    display_tween(-500, 100, -1000, 2000)
 }
-if(stringLenght>700 && stringLenght<1100){
-   display.style.height="420px";
-   console.log("new height2");
-}
+   
+
 }
