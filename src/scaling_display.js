@@ -5,9 +5,9 @@ export function scalingDisplay(stringLenght){
 if(stringLenght>600){
     display.style.height=(stringLenght/1.7).toString()+'px';
     console.log("new height");
-    display_tween(-500, 0, -1000, 2000)
+    display_tween(-500, -10, -1000, 2000)
     //objectdisplay.position.set(-500, 0, -1500);
-    if(stringLenght>1200){
+    if(stringLenght>1150){
         display.style.height=(stringLenght/2).toString()+'px';
         console.log('high');
     }
