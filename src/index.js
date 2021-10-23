@@ -242,12 +242,13 @@ export function display_tween(xpar, ypar, zpar, duration) {
     .start();
 
 }
-
+let windosBeginSize = window.innerWidth;
 function onWindowResize() {
 
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-
+  //resizing display window
+  display.style.left=(windosBeginSize-window.innerWidth).toString()+"px";
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   render();
