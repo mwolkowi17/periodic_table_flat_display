@@ -6,7 +6,7 @@ let checkGet=false;
 export async function getData(i) {
   //await axios.get('/element/1.json')
   for (let i=1; i < 119; i++){
-  await axios.get('/element/'+i+'.json')
+  await axios.get('./element/'+i+'.json')
     .then(function (response) {
       // handle success
       //console.log(response);

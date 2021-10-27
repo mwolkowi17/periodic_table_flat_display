@@ -309,7 +309,7 @@ for (let i = 0; i < table.length; i += 6) {
       objectdisplay.position.set(0, 0, -1500);
     }
     
-    
+    const bodyElem = document.querySelector('body');
     container.appendChild(display)
     scalingDisplay(atomicDescription.textContent.length);
     displayAtached = true;
